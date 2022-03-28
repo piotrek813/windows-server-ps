@@ -86,11 +86,11 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// const termynals = document.querySelectorAll('.termynal');
-			// [...termynals].forEach((termynal, i) => {
-			// 	termynal.id=`termynal${i}`;
-			// 	new Termynal(`#${termynal.id}`);
-			// })
+			const termynals = document.querySelectorAll('.termynal');
+			[...termynals].forEach((termynal, i) => {
+			 	termynal.id=`termynal${i}`;
+			 	new Termynal(`#${termynal.id}`);
+			 })
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
