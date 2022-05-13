@@ -21,6 +21,11 @@
 				overflow-y: scroll;
 			}
 
+			.termynal--print {
+				height: auto;
+				overflow-y: visible;
+			}
+
 			.termynal::-webkit-scrollbar {
 				width: 10px;
 			}
@@ -54,29 +59,53 @@
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, illo natus voluptatum et cumque veniam accusantium neque. Vel dolore culpa temporibus voluptate qui quia maxime. Natus accusamus dolores nihil neque.
 					</textarea>
 				</section>
-				<section><div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-					<span data-ty="input" data-ty-prompt="▲">npm uninstall react</span>
-					<span data-ty>Are you sure you want to uninstall 'react'?</span>
-					<span data-ty="input" data-ty-typeDelay="1000" data-ty-prompt="(y/n)">y</span>
-					<span data-ty="progress" data-ty-progressChar="·"></span>
-					<span data-ty>Uninstalled 'react'</span>
-					<span data-ty="input" data-ty-prompt="▲">node</span>
-					<span data-ty="input" data-ty-prompt=">">Array(5).fill('🦄 ')</span>
-					<span data-ty>['🦄', '🦄', '🦄', '🦄', '🦄']</span>
-					<span data-ty="input" data-ty-prompt="▲">cd ~/repos</span>
-					<span data-ty="input" data-ty-prompt="▲ ~/repos"> git checkout branch master</span>
-					<span data-ty="input" data-ty-prompt="▲ ~/repos (master)">git commit -m "Fix things"</span>
-					<span data-ty>Are you sure you want to uninstall 'react'?</span>
-					<span data-ty="input" data-ty-typeDelay="1000" data-ty-prompt="(y/n)">y</span>
-					<span data-ty="progress" data-ty-progressChar="·"></span>
-					<span data-ty>Uninstalled 'react'</span>
-					<span data-ty="input" data-ty-prompt="▲">node</span>
-					<span data-ty="input" data-ty-prompt=">">Array(5).fill('🦄 ')</span>
-					<span data-ty>['🦄', '🦄', '🦄', '🦄', '🦄']</span>
-					<span data-ty="input" data-ty-prompt="▲">cd ~/repos</span>
-					<span data-ty="input" data-ty-prompt="▲ ~/repos"> git checkout branch master</span>
-					<span data-ty="input" data-ty-prompt="▲ ~/repos (master)">git commit -m "Fix things"</span>
-				</div></section>
+				<section><section>
+					<div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<span data-ty="input" data-ty-prompt="▲">npm uninstall react</span>
+						<span data-ty>Are you sure you want to uninstall 'react'?</span>
+						<span data-ty="input" data-ty-typeDelay="1000" data-ty-prompt="(y/n)">y</span>
+						<span data-ty="progress" data-ty-progressChar="·"></span>
+						<span data-ty>Uninstalled 'react'</span>
+						<span data-ty="input" data-ty-prompt="▲">node</span>
+						<span data-ty="input" data-ty-prompt=">">Array(5).fill('🦄 ')</span>
+						<span data-ty>['🦄', '🦄', '🦄', '🦄', '🦄']</span>
+						<span data-ty="input" data-ty-prompt="▲">cd ~/repos</span>
+						<span data-ty="input" data-ty-prompt="▲ ~/repos"> git checkout branch master</span>
+						<span data-ty="input" data-ty-prompt="▲ ~/repos (master)">git commit -m "Fix things"</span>
+						<span data-ty>Are you sure you want to uninstall 'react'?</span>
+						<span data-ty="input" data-ty-typeDelay="1000" data-ty-prompt="(y/n)">y</span>
+						<span data-ty="progress" data-ty-progressChar="·"></span>
+						<span data-ty>Uninstalled 'react'</span>
+						<span data-ty="input" data-ty-prompt="▲">node</span>
+						<span data-ty="input" data-ty-prompt=">">Array(5).fill('🦄 ')</span>
+						<span data-ty>['🦄', '🦄', '🦄', '🦄', '🦄']</span>
+						<span data-ty="input" data-ty-prompt="▲">cd ~/repos</span>
+						<span data-ty="input" data-ty-prompt="▲ ~/repos"> git checkout branch master</span>
+						<span data-ty="input" data-ty-prompt="▲ ~/repos (master)">git commit -m "Fix things"</span>
+					</div>
+				</section>
+				<section>
+					<pre><code data-line-numbers="3-5|8-10|13-15">
+						<table>
+						  <tr>
+							<td>Apples</td>
+							<td>$1</td>
+							<td>7</td>
+						  </tr>
+						  <tr>
+							<td>Oranges</td>
+							<td>$2</td>
+							<td>18</td>
+						  </tr>
+						  <tr>
+							<td>Kiwi</td>
+							<td>$3</td>
+							<td>1</td>
+						  </tr>
+						</table>
+						</code></pre>
+				</section>
+			</section>
 			</div>
 		</div>
 
@@ -87,10 +116,17 @@
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
 			const termynals = document.querySelectorAll('.termynal');
-			[...termynals].forEach((termynal, i) => {
-			 	termynal.id=`termynal${i}`;
-			 	new Termynal(`#${termynal.id}`);
-			 })
+			const termynalNodes = [...termynals];
+			if(!window.location.search.includes('?print-pdf')) {
+				termynalNodes.forEach((termynal, i) => {
+					 termynal.id=`termynal${i}`;
+					 new Termynal(`#${termynal.id}`);
+				 })
+			} else {
+				termynalNodes.forEach((termynal, i) => {
+					 termynal.classList.add('termynal--print');
+				 })
+			}
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
