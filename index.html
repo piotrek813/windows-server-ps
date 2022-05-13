@@ -21,6 +21,10 @@
 				overflow-y: scroll;
 			}
 
+			.termynal span {
+				white-space: pre-wrap;
+			}
+
 			.termynal--print {
 				height: auto;
 				overflow-y: visible;
@@ -44,14 +48,42 @@
 			<div class="slides">
 				<section><div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 					<span data-ty>Windows PowerShell
-						Copyright (C) Microsoft Corporation. All rights reserved.
-						Try the new cross-platform PowerShell https://aka.ms/pscore6</span>
+Copyright (C) Microsoft Corporation. All rights reserved.
+Try the new cross-platform PowerShell https://aka.ms/pscore6</span>
 					<span data-ty="input" data-ty-prompt="PS C:\Users\P>">dir</span>
-					<span data-ty>Directory: C:\Users\P\desktop <br>
-						Mode                 LastWriteTime         Length Name<br>
-						----                 -------------         ------ ----<br>
-						d-----        20.03.2022     19:29                c++<br>
-						-a----        19.03.2022     20:36          20214 Grawitacja_  zadania do sprawdzianu_3 klasa (1).docx<br></span>
+					<span data-ty>Directory: C:\Users\P\desktop
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        20.03.2022     19:29                c++
+-a----        19.03.2022     20:36          20214 Grawitacja_  zadania do sprawdzianu_3 klasa (1).docx</span>
+				</div></section>
+				<section>
+					<div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+					<span data-ty="input" data-ty-prompt="C:\Users\P>">cd desktop</span>
+					<span data-ty="input" data-ty-prompt="C:\Users\P>">dir</span>
+					<span data-ty>Volume in drive C has no label.
+olume Serial Number is A2CC-BC86
+Directory of C:\Users\P\Desktop
+					<span data-ty>
+18.04.2022  19:49             .
+18.04.2022  19:49             ..
+03.04.2022  18:17               458 anagramy.txt
+03.04.2022  18:17               648 main.cpp
+03.04.2022  18:17         2 631 332 main.exe
+03.04.2022  18:06            15 157 slowa.txt
+4 File(s)      2 647 595 bytes
+2 Dir(s)  117 330 804 736 bytes free</span>
+				</div>
+			</section>
+				<section><div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+					<span data-ty="input" data-ty-prompt="C:\Users\P>">net user</span>
+					<span data-ty>
+Konta użytkowników dla \\DESKTOP-RIJQAGI
+
+---------------------------------------------------------------
+Administrator            Gość                     Konto domyślne
+P                        user0                    WDAGUtilityAccount
+Polecenie zostało wykonane pomyślnie.</span>
 				</div></section>
 				<section data-markdown>
 					<textarea data-template>
