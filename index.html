@@ -117,16 +117,27 @@
 		<script>
 			const termynals = document.querySelectorAll('.termynal');
 			const termynalNodes = [...termynals];
-			if(!window.location.search.includes('?print-pdf')) {
+			let params = window.location.search;
+			if(!params.includes('print-pdf') && !params.includes('termynal-stop')) {
 				termynalNodes.forEach((termynal, i) => {
 					 termynal.id=`termynal${i}`;
 					 new Termynal(`#${termynal.id}`);
 				 })
-			} else {
+			} else if(params.includes('print-pdf')){
 				termynalNodes.forEach((termynal, i) => {
 					 termynal.classList.add('termynal--print');
 				 })
 			}
+
+			document.addEventListener('keydown', e => {
+				if(e.code=="KeyT") {
+					let tyStop = 'termynal-stop';
+						if(params.includes(tyStop))
+							window.location.search = params.replace(tyStop, '');
+						else
+							window.location.search+=tyStop;
+				}
+			});
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
