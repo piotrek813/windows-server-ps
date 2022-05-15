@@ -53,7 +53,7 @@
 						</textarea>
 					</section>
 					<section>
-						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="PS C:\Users\Administrator>">netsh interface ipv4 show config</span>
 							<span daty-ty>
 Configuration for interface "Ethernet"
@@ -89,7 +89,7 @@ Statically Configured WINS Servers:   None
 					</section>
 					<section>
 						<h3>Statyczne adresy</h3>
-						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<aside class="notes">192.168.0.10 adres komputera <br> 255.255.255.0 maska <br> 192.168.0.1 brama
 							</aside>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set address name="Ethernet 2" static 192.168.0.10 255.255.255.0 192.168.0.1</span>
@@ -97,14 +97,14 @@ Statically Configured WINS Servers:   None
 					</section>
 					<section>
 						<h3>DHCP</h3>
-						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>"> netsh interface ipv4 set address name="Ethernet 2" source="dhcp"</span>
 						</div>
 					</section>
 					<section>
 						<aside class="notes">index=2 pozwala na ustawienie drugiego dns</aside>
 						<h3>DNS</h3>
-						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set dns name="Ethernet" static 127.0.0.1</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 index=2</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set dnsservers name="Ethernet 2" source="dhcp"</span>
@@ -113,7 +113,7 @@ Statically Configured WINS Servers:   None
 					<section>
 						<aside class="notes">/releasedns - Pozwala wykonać aktualizację dzierżawy adresów DHCP oraz rejestrację nazw związanych z systemem DNS w wierszu polecenia <br><br> ipconfig/release adres IP karty sieciowej zostanie wyczyszczony i przekazany do puli na serwerze DHCP<br><br>/renew - pobranie adresu z serwera DHCP</aside>
 						<h3>ipconfig</h3>
-						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">ipconfig /registerdns</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">ipconfig /release</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">ipconfig /renew</span>
@@ -355,7 +355,7 @@ Running  wuauserv           Windows Update
 						</div>
 					</section>
 					<section>
-						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<aside class="notes"><b>Get-Service</b> służy do wyświetlenia wszystkich serwisów dostępnych w systemie.
 <br><br>
 								Komenda wyświetla wszystkie role dostępne na serwerze, nawet jeśli nie są zainstalowane. Oczywiście z panelu ich nie widać, ale jak sami wiemy Windows Server potrafi dodawać nowe funkcje bez dostępu do sieci, co znaczy, że usługi są spakowane na lokalnym urządzeniu. PowerShell jak zwykle pokazuje nam wszystko dostępne w systemie. Możemy np. uzyskać informacje tylko o uruchomionych usługach używając komendy: <b>Get-Service | Where {$_.status –eq 'running'}</b></aside>
@@ -601,7 +601,7 @@ Stopped  wuauserv           Windows Update
 							<span style="font-weight:700">Tylko teraz uwaga, bo to nie takie proste. Po wpisaniu której kolwiek z komend w większości przypadków możemy otrzymać komunikat podobny do tego:
 								<br> <br><span style="color:#ff0000"">Restart-Service : Service 'Klient DHCP (DHCP)' cannot be stopped due to the following error: Nie można utworzyć usługi WinHttpAutoProxySvc na komputerze '.'.</span></span>
 							</aside>
-							<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Stop-Service service_name</span>
 								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Start-Service service_name</span>
 								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Restart-Service service_name</span>
@@ -611,7 +611,7 @@ Stopped  wuauserv           Windows Update
 						<aside class="notes">Jak sobie z tym poradzić? Wbrew pozorom to dość proste. Błąd występuje, ponieważ usługa nie ma skonfigurowanego trybu uruchamiania, bądź ma go skonfigurowanego w nie taki sposób, jakiego oczekujemy. <br><br> Jak widzimy parametr “StartMode” ustawiony jest na „Auto”. W tym stanie serwer nie pozwoli nam zarządzać stanem uruchomienia usługi. Trzeba zmienić ustawienie na „Manual”. <br> <br> <b>Działa? Działa. Teraz możemy dowolnie zarządzać statusem uruchomienia usługi. Pamiętajmy jednak, że podany przykład jest dość dyskusyjny. W końcu DHCP powinno działać cały czas, tak więc ustawienie StartMode „Auto” jest zdecydowanie bardziej właściwe. Gdy skończymy się już bawić możemy je przywrócić w ten sam sposób, w jaki zmieniliśmy je na „Manual”.</b>
 							<br><br>
 							</aside>
-							<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get-CimInstance win32_service | Where-Object Name -eq "dhcp"</span>
 								<span data-ty>
 ProcessId Name StartMode State   Status ExitCode
@@ -628,7 +628,7 @@ ProcessId Name StartMode State   Status ExitCode
 							</div>
 					</section>
 					<section>
-						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>"></span>
 						</div>
 						<aside class="notes">Skrypty te mogą być bardzo użyteczne. Dajmy na to, że mamy jakiś mało wiarygodny program zewnętrzny, który może co jakiś czas się wyłączać. Piszemy więc prosty skrypt, którym od razu będziemy w stanie go uruchomić, jednocześnie sprawdzając jego status: <br> <br>
@@ -645,7 +645,7 @@ ProcessId Name StartMode State   Status ExitCode
 					</section>
 					<section>
 						<aside class="notes">Zarzązanie obiektami chyba najlepiej pokazać na przykładzie. <br> <br> Zaczynamy od stworzenia ou o nazwie IT i kadra <br> <br> Teraz możemy podejżeć ou w domenie i widzimy, że nasze jednostki zostały poprawnie utworzone</aside>
-						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd ou "ou=IT, dc=egzamin, dc=local"</span>
 							<span data-ty>dsadd succeeded:ou=IT,dc=egzamin,dc=local</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd ou "ou=kadra, dc=egzamin, dc=local"</span>
@@ -657,7 +657,7 @@ ProcessId Name StartMode State   Status ExitCode
 					</section>
 					<section>
 						<aside class="notes">Teraz dodamy użytkowników... <br><br> Musieliśmy się tyle napisać i narazie mamy tylko jednego Roy, ale teraz możemy szybko edytować tą komednę i... <br><br> mamy dwóch nowych kadrowców kadrowców <br><br> Jeszcze tylko wyjaśnimy szybko co znaczą poszególne parametry: <br> -ln-nazwisko użytkownika <br>-fn-imię użytkownika<br>-upn-login<br>-pwd-hasło<br>-mustchpwd (yes, no)-wymuszenie zmiany hasła przy pierwszym logowaniu<br>-disabled (yes, no)-włączenie lub wyłączenie konta <br>-memberof - podajemy do jakiej grup ma należeć użytkownik</aside>
-						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd user "cn=Roy Trenneman,ou=IT,dc=egzamin,dc=local" -fn Roy -ln Trennenman -upn roy -pwd 1qaz@WSX -mustchpwd no -memberof "cn=Administratorzy,cn=Builtin,dc=egzamin,dc=local"</span>
 							<span data-ty>dsadd succeeded:cn=Roy Trenneman,ou=IT,dc=egzamin,dc=local</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd user "cn=Paul,ou=kadra,dc=egzamin,dc=local" -fn Paul -upn paul -pwd 1qaz@WSX -mustchpwd no</span>
@@ -668,13 +668,56 @@ ProcessId Name StartMode State   Status ExitCode
 					</section>
 					<section>
 						<aside class="notes">Teraz zajmiemy się poleceniem dsmove. Załóżmy, że chcemy zmienić nazwę jednogo z użytkowników... <br> <br> i gotowe. A teraz jeśli postanowimy zmienić nazwę całej ou na np. sprzedawcy a John przenieść do IT</aside>
-						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmove "cn=Paul,ou=kadra,dc=egzamin,dc=local" -newname "sir Paul"</span>
 							<span data-ty>dsmove succeeded:cn=Paul,ou=kadra,dc=egzamin,dc=local</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmove "kadra, dc=egzamin,dc=local" -newname "sprzedawcy"</span>
 							<span data-ty>dsmove succeeded:ou=kadra,dc=egzamin,dc=local</span>
 							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmove "cn=John,ou=sprzedawcy,dc=egzamin,dc=local" -newparent "ou=IT,dc=egzamin,dc=local"</span>
 							<span data-ty>dsmove succeeded:cn=John,ou=sprzedawcy,dc=egzamin,dc=local</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">Za chwile zajmiemy się modyfikacją już istniejących obiektów ale najpierw zobaczmy jak wyświeltić użytkowników. <br> Opcja -filter pozwala na ustawienie parametrów wyszukiwania a -searchbase na określenie gdzie polecenia ma szukać użytkowników. <br><br> Podobnie możemy użyć poleceń: <b>Get-ADOrganizationalUnit</b> i <b>Get-ADGroup</b> do wyświetlenia jednostek organizacyjnych i grup</aside>
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get-ADUser -filter * -searchbase "ou=IT,dc=egzamin,dc=local"</span>
+							<span data-ty>DistinguishedName : CN=Roy Trenneman,OU=IT,DC=egzamin,DC=local
+Enabled           : True
+GivenName         : Roy
+Name              : Roy Trenneman
+ObjectClass       : user
+ObjectGUID        : c765712b-4f8c-4d39-82e3-9430cb663697
+SamAccountName    : Roy Trenneman
+SID               : S-1-5-21-1416323974-3321502363-3564335928-1111
+Surname           : Trennenman
+UserPrincipalName : roy
+
+DistinguishedName : CN=John,OU=IT,DC=egzamin,DC=local
+Enabled           : True
+GivenName         : John
+Name              : John
+ObjectClass       : user
+ObjectGUID        : 18a2493f-f7d7-4c03-b765-70ea18c00a05
+SamAccountName    : John
+SID               : S-1-5-21-1416323974-3321502363-3564335928-1113
+Surname           :
+UserPrincipalName : john</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">Następnie zajmiemy się modyfikacją obiektów. Składnia polecenia <b>dsmod</b> jest identyczna jak <b>dsadd</b>: dsmod ObjectType DistinguishedName -flaga <br><br>Przykładowo jeśli chcemy zresetować hasła użytkowniką wystarczy, że użyjemy tego polecenia</aside>
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmod user "CN=John,OU=IT,DC=egzamin,DC=local" "CN=Roy Trenneman,OU=IT,DC=egzamin,DC=local" -pwd zaq1@WSX -mustchpwd yes</span>
+							<span data-ty>dsmod succeeded:CN=John,OU=IT,DC=egzamin,DC=local
+dsmod succeeded:CN=Roy Trenneman,OU=IT,DC=egzamin,DC=local</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">Na koniec zobaczmy jak usuwać obiekty. Opcja -subtree jest potrzebna kiedy usuwamy ou, które mają zawartość. <br> Wartą do zapamiętania jest flaga -exclude używana ze wspomnianą -subtree. Pozwala nam na szybkie usunięcię objektów z ou zostawiając ja nie naruszoną.</aside>
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsrm "OU=sprzedawcy,DC=egzamin,DC=local" -q -subtree</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>"> dsrm "ou=IT,dc=egzamin,dc=local" -noprompt -subtree -exclude</span>
+							<span data-ty>dsrm succeeded:ou=IT,dc=egzamin,dc=local</span>
 						</div>
 					</section>
 				</section>
