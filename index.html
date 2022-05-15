@@ -612,13 +612,14 @@ Stopped  wuauserv           Windows Update
 							<br><br>
 							</aside>
 							<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get-CimInstance win32_service | Where-Object Name -eq "service_name"</span>
+								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get-CimInstance win32_service | Where-Object Name -eq "dhcp"</span>
 								<span data-ty>
 ProcessId Name StartMode State   Status ExitCode
 --------- ---- --------- -----   ------ --------
 636       Dhcp Auto      Running OK     0
 								</span>
-								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Set-Service service_name -StartupType manual</span>
+								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Set-Service dhcp -StartupType manual</span>
+								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get-CimInstance win32_service | Where-Object Name -eq "dhcp"</span>
 								<span data-ty>
 ProcessId Name StartMode State   Status ExitCode
 --------- ---- --------- -----   ------ --------
@@ -639,8 +640,42 @@ ProcessId Name StartMode State   Status ExitCode
 				<section>
 					<section data-markdown>
 						<textarea data-template>
-							# Zarządzanie użytkownikami adds
+							# Zarządzanie obiektami adds
 						</textarea>
+					</section>
+					<section>
+						<aside class="notes">Zarzązanie obiektami chyba najlepiej pokazać na przykładzie. <br> <br> Zaczynamy od stworzenia ou o nazwie IT i kadra <br> <br> Teraz możemy podejżeć ou w domenie i widzimy, że nasze jednostki zostały poprawnie utworzone</aside>
+						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd ou "ou=IT, dc=egzamin, dc=local"</span>
+							<span data-ty>dsadd succeeded:ou=IT,dc=egzamin,dc=local</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd ou "ou=kadra, dc=egzamin, dc=local"</span>
+							<span data-ty>dsadd succeeded:ou=kadra,dc=egzamin,dc=local</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsquery ou domainroot</span>
+							<span data-ty>"OU=Domain Controllers,DC=egzamin,DC=local"
+"OU=IT,DC=egzamin,DC=local"</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">Teraz dodamy użytkowników... <br><br> Musieliśmy się tyle napisać i narazie mamy tylko jednego Roy, ale teraz możemy szybko edytować tą komednę i... <br><br> mamy dwóch nowych kadrowców kadrowców <br><br> Jeszcze tylko wyjaśnimy szybko co znaczą poszególne parametry: <br> -ln-nazwisko użytkownika <br>-fn-imię użytkownika<br>-upn-login<br>-pwd-hasło<br>-mustchpwd (yes, no)-wymuszenie zmiany hasła przy pierwszym logowaniu<br>-disabled (yes, no)-włączenie lub wyłączenie konta <br>-memberof - podajemy do jakiej grup ma należeć użytkownik</aside>
+						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd user "cn=Roy Trenneman,ou=IT,dc=egzamin,dc=local" -fn Roy -ln Trennenman -upn roy -pwd 1qaz@WSX -mustchpwd no -memberof "cn=Administratorzy,cn=Builtin,dc=egzamin,dc=local"</span>
+							<span data-ty>dsadd succeeded:cn=Roy Trenneman,ou=IT,dc=egzamin,dc=local</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd user "cn=Paul,ou=kadra,dc=egzamin,dc=local" -fn Paul -upn paul -pwd 1qaz@WSX -mustchpwd no</span>
+							<span data-ty>dsadd succeeded:cn=Paul,ou=kadra,dc=egzamin,dc=local</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsadd user "cn=John,ou=kadra,dc=egzamin,dc=local" -fn John -upn john -pwd 1qaz@WSX -mustchpwd no</span>
+							<span data-ty>dsadd succeeded:cn=John,ou=kadra,dc=egzamin,dc=local</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">Teraz zajmiemy się poleceniem dsmove. Załóżmy, że chcemy zmienić nazwę jednogo z użytkowników... <br> <br> i gotowe. A teraz jeśli postanowimy zmienić nazwę całej ou na np. sprzedawcy a John przenieść do IT</aside>
+						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmove "cn=Paul,ou=kadra,dc=egzamin,dc=local" -newname "sir Paul"</span>
+							<span data-ty>dsmove succeeded:cn=Paul,ou=kadra,dc=egzamin,dc=local</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmove "kadra, dc=egzamin,dc=local" -newname "sprzedawcy"</span>
+							<span data-ty>dsmove succeeded:ou=kadra,dc=egzamin,dc=local</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">dsmove "cn=John,ou=sprzedawcy,dc=egzamin,dc=local" -newparent "ou=IT,dc=egzamin,dc=local"</span>
+							<span data-ty>dsmove succeeded:cn=John,ou=sprzedawcy,dc=egzamin,dc=local</span>
+						</div>
 					</section>
 				</section>
 			</div>
