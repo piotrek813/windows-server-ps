@@ -46,98 +46,318 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section><div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-					<span data-ty>Windows PowerShell
-Copyright (C) Microsoft Corporation. All rights reserved.
-Try the new cross-platform PowerShell https://aka.ms/pscore6</span>
-					<span data-ty="input" data-ty-prompt="PS C:\Users\P>">dir</span>
-					<span data-ty>Directory: C:\Users\P\desktop
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----        20.03.2022     19:29                c++
--a----        19.03.2022     20:36          20214 Grawitacja_  zadania do sprawdzianu_3 klasa (1).docx</span>
-				</div></section>
 				<section>
-					<div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-					<span data-ty="input" data-ty-prompt="C:\Users\P>">cd desktop</span>
-					<span data-ty="input" data-ty-prompt="C:\Users\P>">dir</span>
-					<span data-ty>Volume in drive C has no label.
-olume Serial Number is A2CC-BC86
-Directory of C:\Users\P\Desktop
-					<span data-ty>
-18.04.2022  19:49             .
-18.04.2022  19:49             ..
-03.04.2022  18:17               458 anagramy.txt
-03.04.2022  18:17               648 main.cpp
-03.04.2022  18:17         2 631 332 main.exe
-03.04.2022  18:06            15 157 slowa.txt
-4 File(s)      2 647 595 bytes
-2 Dir(s)  117 330 804 736 bytes free</span>
-				</div>
-			</section>
-				<section><div class="termynal ps" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-					<span data-ty="input" data-ty-prompt="C:\Users\P>">net user</span>
-					<span data-ty>
-Konta użytkowników dla \\DESKTOP-RIJQAGI
+					<section data-markdown>
+						<textarea data-template>
+							# Konfiguracja adresów
+						</textarea>
+					</section>
+					<section>
+						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="PS C:\Users\Administrator>">netsh interface ipv4 show config</span>
+							<span daty-ty>
+Configuration for interface "Ethernet"
+DHCP enabled:                         Yes
+IP Address:                           10.0.2.15
+Subnet Prefix:                        10.0.2.0/24 (mask 255.255.255.0)
+Default Gateway:                      10.0.2.2
+Gateway Metric:                       0
+InterfaceMetric:                      25
+Statically Configured DNS Servers:    127.0.0.1
+Register with which suffix:           Primary only
+WINS servers configured through DHCP: None
 
----------------------------------------------------------------
-Administrator            Gość                     Konto domyślne
-P                        user0                    WDAGUtilityAccount
-Polecenie zostało wykonane pomyślnie.</span>
-				</div></section>
-				<section data-markdown>
-					<textarea data-template>
-						# Hello World
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, illo natus voluptatum et cumque veniam accusantium neque. Vel dolore culpa temporibus voluptate qui quia maxime. Natus accusamus dolores nihil neque.
-					</textarea>
-				</section>
-				<section><section>
-					<div class="termynal" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-						<span data-ty="input" data-ty-prompt="▲">npm uninstall react</span>
-						<span data-ty>Are you sure you want to uninstall 'react'?</span>
-						<span data-ty="input" data-ty-typeDelay="1000" data-ty-prompt="(y/n)">y</span>
-						<span data-ty="progress" data-ty-progressChar="·"></span>
-						<span data-ty>Uninstalled 'react'</span>
-						<span data-ty="input" data-ty-prompt="▲">node</span>
-						<span data-ty="input" data-ty-prompt=">">Array(5).fill('🦄 ')</span>
-						<span data-ty>['🦄', '🦄', '🦄', '🦄', '🦄']</span>
-						<span data-ty="input" data-ty-prompt="▲">cd ~/repos</span>
-						<span data-ty="input" data-ty-prompt="▲ ~/repos"> git checkout branch master</span>
-						<span data-ty="input" data-ty-prompt="▲ ~/repos (master)">git commit -m "Fix things"</span>
-						<span data-ty>Are you sure you want to uninstall 'react'?</span>
-						<span data-ty="input" data-ty-typeDelay="1000" data-ty-prompt="(y/n)">y</span>
-						<span data-ty="progress" data-ty-progressChar="·"></span>
-						<span data-ty>Uninstalled 'react'</span>
-						<span data-ty="input" data-ty-prompt="▲">node</span>
-						<span data-ty="input" data-ty-prompt=">">Array(5).fill('🦄 ')</span>
-						<span data-ty>['🦄', '🦄', '🦄', '🦄', '🦄']</span>
-						<span data-ty="input" data-ty-prompt="▲">cd ~/repos</span>
-						<span data-ty="input" data-ty-prompt="▲ ~/repos"> git checkout branch master</span>
-						<span data-ty="input" data-ty-prompt="▲ ~/repos (master)">git commit -m "Fix things"</span>
-					</div>
+Configuration for interface "Ethernet 2"
+DHCP enabled:                         Yes
+IP Address:                           169.254.63.85
+Subnet Prefix:                        169.254.0.0/16 (mask 255.255.0.0)
+InterfaceMetric:                      25
+Statically Configured DNS Servers:    127.0.0.1
+Register with which suffix:           Primary only
+WINS servers configured through DHCP: None
+
+Configuration for interface "Loopback Pseudo-Interface 1"
+DHCP enabled:                         No
+IP Address:                           127.0.0.1
+Subnet Prefix:                        127.0.0.0/8 (mask 255.0.0.0)
+InterfaceMetric:                      75
+Statically Configured DNS Servers:    None
+Register with which suffix:           Primary only
+Statically Configured WINS Servers:   None
+							</span>
+						</div>
+					</section>
+					<section>
+						<h3>Statyczne adresy</h3>
+						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<aside class="notes">192.168.0.10 adres komputera <br> 255.255.255.0 maska <br> 192.168.0.1 brama
+							</aside>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set address name="Ethernet 2" static 192.168.0.10 255.255.255.0 192.168.0.1</span>
+						</div>
+					</section>
+					<section>
+						<h3>DHCP</h3>
+						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>"> netsh interface ipv4 set address name="Ethernet 2" source="dhcp"</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">index=2 pozwala na ustawienie drugiego dns</aside>
+						<h3>DNS</h3>
+						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set dns name="Ethernet" static 127.0.0.1</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set dns name="Ethernet" static 8.8.8.8 index=2</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">netsh interface ipv4 set dnsservers name="Ethernet 2" source="dhcp"</span>
+						</div>
+					</section>
+					<section>
+						<aside class="notes">/releasedns - Pozwala wykonać aktualizację dzierżawy adresów DHCP oraz rejestrację nazw związanych z systemem DNS w wierszu polecenia <br><br> ipconfig/release adres IP karty sieciowej zostanie wyczyszczony i przekazany do puli na serwerze DHCP<br><br>/renew - pobranie adresu z serwera DHCP</aside>
+						<h3>ipconfig</h3>
+						<div class="termynal" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">ipconfig /registerdns</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">ipconfig /release</span>
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">ipconfig /renew</span>
+						</div>
+					</section>
 				</section>
 				<section>
-					<pre><code data-line-numbers="3-5|8-10|13-15">
-						<table>
-						  <tr>
-							<td>Apples</td>
-							<td>$1</td>
-							<td>7</td>
-						  </tr>
-						  <tr>
-							<td>Oranges</td>
-							<td>$2</td>
-							<td>18</td>
-						  </tr>
-						  <tr>
-							<td>Kiwi</td>
-							<td>$3</td>
-							<td>1</td>
-						  </tr>
-						</table>
-						</code></pre>
+					<section data-markdown>
+						<textarea data-template>
+							# Zarządzanie usługami
+						</textarea>
+					</section>
+					<section>
+						<aside class="notes">
+							Shhh, these are your private notes 📝
+						  </aside>
+						<div class="termynal ps" id="get-help" data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="PS C:\Users\Administrator>">Get-Service</span>
+							<span data-ty>
+Status   Name               DisplayName
+------   ----               -----------
+Running  ADWS               Usługi sieci Web usługi Active Dire...
+Stopped  AJRouter           Usługa routera AllJoyn
+Stopped  ALG                Usługa bramy warstwy aplikacji
+Stopped  AppIDSvc           Tożsamość aplikacji
+Stopped  Appinfo            Informacje o aplikacji
+Stopped  AppMgmt            Zarządzanie aplikacjami
+Stopped  AppReadiness       Przygotowywanie aplikacji
+Stopped  AppVClient         Microsoft App-V Client
+Running  AppXSvc            AppX Deployment Service (AppXSVC)
+Stopped  aspnet_state       ASP.NET State Service
+Stopped  AudioEndpointBu... Konstruktor punktów końcowych audio...
+Stopped  Audiosrv           Windows Audio
+Stopped  AxInstSV           Instalator kontrolek ActiveX (AxIns...
+Running  BFE                Podstawowy aparat filtrowania
+Stopped  BITS               Usługa inteligentnego transferu w tle
+Running  BrokerInfrastru... Usługa infrastruktury zadań w tle
+Stopped  BTAGService        Usługa bramy audio Bluetooth
+Stopped  BthAvctpSvc        Usługa AVCTP
+Stopped  bthserv            Usługa obsługi Bluetooth
+Stopped  camsvc             Usługa Menedżer dostępu do możliwości
+Stopped  CaptureService_... CaptureService_81314
+Stopped  cbdhsvc_81314      Usługa użytkownika Schowek_81314
+Running  CDPSvc             Usługa platformy podłączonych urządzeń
+Running  CDPUserSvc_81314   Usługa użytkownika platformy podłąc...
+Stopped  CertPropSvc        Propagacja certyfikatu
+Running  ClipSVC            Usługa licencjonowania klienta (Cli...
+Running  COMSysApp          Aplikacja systemowa modelu COM+
+Stopped  ConsentUxUserSv... ConsentUX_81314
+Running  CoreMessagingRe... CoreMessaging
+Running  CryptSvc           Usługi kryptograficzne
+Stopped  CscService         Pliki trybu offline
+Running  DcomLaunch         Program uruchamiający proces serwer...
+Stopped  defragsvc          Optymalizowanie dysków
+Stopped  DeviceAssociati... Usługa kojarzenia urządzeń
+Stopped  DeviceInstall      Usługa instalacji urządzeń
+Stopped  DevicePickerUse... DevicePicker_81314
+Stopped  DevicesFlowUser... Przepływ urządzeń_81314
+Stopped  DevQueryBroker     Broker wykrywania w tle zapytań dot...
+Running  Dfs                DFS Namespace
+Running  DFSR               Replikacja systemu plików DFS
+Running  Dhcp               Klient DHCP
+Running  DHCPServer         Serwer DHCP
+Stopped  diagnosticshub.... Standardowa usługa kolektora centru...
+Running  DiagTrack          Środowiska i telemetria połączonego...
+Stopped  DmEnrollmentSvc    Usługa rejestracji zarządzania urzą...
+Stopped  dmwappushservice   Usługa routingu komunikatów wypycha...
+Running  DNS                DNS Server
+Running  Dnscache           Klient DNS
+Stopped  DoSvc              Optymalizacja dostarczania
+Stopped  dot3svc            Automatyczna konfiguracja sieci prz...
+Running  DPS                Usługa zasad diagnostyki
+Stopped  DsmSvc             Menedżer konfiguracji urządzeń
+Stopped  DsRoleSvc          Serwer ról usług domenowych
+Stopped  DsSvc              Usługa udostępniania danych
+Stopped  Eaphost            Protokół uwierzytelniania rozszerzo...
+Stopped  EFS                System szyfrowania plików (EFS)
+Stopped  embeddedmode       Tryb osadzony
+Stopped  EntAppSvc          Usługa zarządzania aplikacjami w pr...
+Running  EventLog           Dziennik zdarzeń Windows
+Running  EventSystem        System zdarzeń COM+
+Running  fdPHost            Host dostawcy odnajdowania funkcji
+Running  FDResPub           Publikacja zasobów odnajdowania fun...
+Running  FontCache          Usług systemu Windows buforowania c...
+Stopped  FrameServer        Serwer klatek kamer systemu Windows
+Running  gpsvc              Klient zasad grupy
+Stopped  GraphicsPerfSvc    GraphicsPerfSvc
+Stopped  hidserv            Usługa urządzeń interfejsu HID
+Stopped  HvHost             Usługa hosta funkcji HV
+Running  IAS                Serwer zasad sieciowych
+Stopped  icssvc             Usługa hotspotu mobilnego systemu W...
+Running  IKEEXT             Moduły obsługi kluczy IPsec IKE i A...
+Stopped  InstallService     Usługa instalacji sklepu Microsoft ...
+Running  iphlpsvc           Pomoc IP
+Running  IsmServ            Intersite Messaging
+Running  Kdc                Centrum dystrybucji kluczy Kerberos
+Stopped  KdsSvc             Usługa dystrybucji kluczy firmy Mic...
+Running  KeyIso             Izolacja klucza CNG
+Stopped  KPSSVC             Usługa serwera proxy centrum dystry...
+Stopped  KtmRm              Usługa KTMRM dla usługi Koordynator...
+Running  LanmanServer       Serwer
+Running  LanmanWorkstation  Stacja robocza
+Stopped  lfsvc              Usługa geolokalizacji
+Running  LicenseManager     Usługa Menedżera licencji systemu W...
+Stopped  lltdsvc            Mapowanie z odnajdywaniem topologii...
+Running  lmhosts            Pomoc TCP/IP NetBIOS
+Running  LSM                Menedżer sesji lokalnej
+Stopped  MapsBroker         Menedżer pobranych map
+Stopped  MozillaMaintenance Mozilla Maintenance Service
+Running  mpssvc             Zapora Windows Defender
+Running  MSDTC              Koordynator transakcji rozproszonych
+Stopped  MSiSCSI            Usługa inicjatora iSCSI firmy Micro...
+Stopped  msiserver          Instalator Windows
+Stopped  MSSQL$MICROSOFT... Wewnętrzna baza danych systemu Windows
+Stopped  NcaSvc             Asystent łączności sieciowej
+Running  NcbService         Broker połączeń sieciowych
+Running  Netlogon           Netlogon
+Stopped  Netman             Połączenia sieciowe
+Running  netprofm           Usługa listy sieci
+Stopped  NetSetupSvc        Usługa konfiguracji sieci
+Stopped  NetTcpPortSharing  Usługa udostępniania portów Net.Tcp
+Stopped  NgcCtnrSvc         Kontener usługi Microsoft Passport
+Stopped  NgcSvc             Microsoft Passport
+Running  NlaSvc             Rozpoznawanie lokalizacji w sieci
+Running  nsi                Usługa interfejsu magazynu sieciowego
+Running  NTDS               Usługi domenowe w usłudze Active Di...
+Stopped  NtFrs              Replikacja plików
+Running  PcaSvc             Usługa Asystent zgodności programów
+Stopped  PerfHost           Host biblioteki DLL liczników wydaj...
+Stopped  PhoneSvc           Usługa telefoniczna
+Stopped  PimIndexMainten... Dane kontaktowe_81314
+Stopped  pla                Dzienniki wydajności i &alerty
+Running  PlugPlay           Plug and Play
+Running  PolicyAgent        Agent zasad IPsec
+Running  Power              Zasilanie
+Stopped  PrintNotify        Rozszerzenia i powiadomienia drukarek
+Stopped  PrintWorkflowUs... Przepływ pracy drukowania_81314
+Running  ProfSvc            Usługa profilów użytkowników
+Stopped  PushToInstall      Usługa PushToInstall systemu Windows
+Stopped  QWAVE              Quality Windows Audio Video Experience
+Stopped  RasAuto            Menedżer autopołączenia dostępu zda...
+Running  RasMan             Menedżer połączeń usługi Dostęp zdalny
+Stopped  RemoteAccess       Routing i dostęp zdalny
+Running  RemoteRegistry     Rejestr zdalny
+Stopped  RmSvc              Usługa zarządzania radiem
+Running  RpcEptMapper       Program mapowania punktów końcowych...
+Stopped  RpcLocator         Lokalizator usługi zdalnego wywołan...
+Running  RpcSs              Zdalne wywoływanie procedur (RPC)
+Stopped  RSoPProv           Dostawca wynikowego zestawu zasad
+Stopped  sacsvr             Pomocnik specjalnej konsoli adminis...
+Running  SamSs              Menedżer kont zabezpieczeń
+Stopped  SCardSvr           Karta inteligentna
+Stopped  ScDeviceEnum       Usługa wyliczania urządzeń karty in...
+Running  Schedule           Harmonogram zadań
+Stopped  SCPolicySvc        Zasady usuwania karty inteligentnej
+Stopped  seclogon           Logowanie pomocnicze
+Stopped  SecurityHealthS... Usługa Zabezpieczenia Windows
+Stopped  SEMgrSvc           Menedżer płatności i funkcji NFC/SE
+Running  SENS               Usługa powiadamiania o zdarzeniach ...
+Stopped  Sense              Usługa Zaawansowana ochrona przed z...
+Stopped  SensorDataService  Usługa danych czujników
+Stopped  SensorService      Usługa czujników
+Stopped  SensrSvc           Usługa monitorowania czujników
+Stopped  SessionEnv         Menedżer konfiguracji usług pulpitu...
+Stopped  SgrmBroker         Broker monitorów czasu wykonywania ...
+Stopped  SharedAccess       Udostępnianie połączenia internetow...
+Running  ShellHWDetection   Wykrywanie sprzętu powłoki
+Stopped  shpamsvc           Shared PC Account Manager
+Stopped  smphost            Miejsca do magazynowania firmy Micr...
+Stopped  SNMPTRAP           SNMP Trap
+Running  Spooler            Bufor wydruku
+Stopped  sppsvc             Ochrona oprogramowania
+Stopped  SSDPSRV            Odnajdywanie SSDP
+Stopped  ssh-agent          OpenSSH Authentication Agent
+Running  SstpSvc            Usługa Protokół SSTP
+Running  StateRepository    Usługa repozytorium stanów
+Stopped  stisvc             Windows Image Acquisition (WIA)
+Stopped  StorSvc            Usługa magazynu
+Stopped  svsvc              Weryfikator punktowy
+Stopped  swprv              Dostawca kopiowania w tle oprogramo...
+Running  SysMain            SysMain
+Running  SystemEventsBroker Broker zdarzeń systemowych
+Running  TabletInputService Usługa klawiatury dotykowej i panel...
+Stopped  tapisrv            Telefonia
+Stopped  TermService        Usługi pulpitu zdalnego
+Running  Themes             Kompozycje
+Stopped  TieringEngineSe... Zarządzanie warstwami magazynowania
+Running  TimeBrokerSvc      Broker czasu
+Running  TokenBroker        Menedżer kont internetowych
+Stopped  TrkWks             Klient śledzenia linków rozproszonych
+Running  TrustedInstaller   Instalator modułów systemu Windows
+Stopped  tzautoupdate       Automatyczna aktualizacja strefy cz...
+Running  UALSVC             Usługa rejestrowania dostępu użytko...
+Stopped  UevAgentService    User Experience Virtualization Service
+Stopped  UmRdpService       Przekierowanie portu trybu użytkown...
+Stopped  UnistoreSvc_81314  Magazyn danych użytkownika_81314
+Stopped  upnphost           Host urządzenia UPnP
+Stopped  UserDataSvc_81314  Dostęp do danych użytkownika_81314
+Running  UserManager        Menedżer użytkowników
+Running  UsoSvc             Update Orchestrator Service
+Stopped  VaultSvc           Menedżer poświadczeń
+Running  VBoxService        VirtualBox Guest Additions Service
+Stopped  vds                Dysk wirtualny
+Stopped  vmicguestinterface Interfejs usługi gościa funkcji Hyp...
+Stopped  vmicheartbeat      Usługa pulsu funkcji Hyper-V
+Stopped  vmickvpexchange    Usługa wymiany danych funkcji Hyper-V
+Stopped  vmicrdv            Usługa wirtualizacji pulpitu zdalne...
+Stopped  vmicshutdown       Usługa zamykania systemu gościa fun...
+Stopped  vmictimesync       Usługa synchronizacji czasu funkcji...
+Stopped  vmicvmsession      Usługa PowerShell Direct funkcji Hy...
+Stopped  vmicvss            Obiekt żądający usługi kopiowania w...
+Stopped  VSS                Kopiowanie woluminów w tle
+Running  W32Time            Windows Time
+Stopped  WaaSMedicSvc       Windows Update Medic Service
+Stopped  WalletService      Usługa portfela
+Stopped  WarpJITSvc         WarpJITSvc
+Stopped  WbioSrvc           Usługa biometryczna systemu Windows
+Running  Wcmsvc             Menedżer połączeń systemu Windows
+Stopped  WdiServiceHost     Host usługi diagnostyki
+Running  WdiSystemHost      Host systemu diagnostyki
+Running  WdNisSvc           Usługa inspekcji sieci Programu ant...
+Stopped  Wecsvc             Kolektor zdarzeń systemu Windows
+Stopped  WEPHOSTSVC         Usługa hosta dostawcy szyfrowania s...
+Stopped  wercplsupport      Pomoc techniczna panelu sterowania ...
+Stopped  WerSvc             Usługa raportowania błędów systemu ...
+Stopped  WiaRpc             Zdarzenia pozyskiwania obrazów nier...
+Stopped  WIDWriter          Usługa VSS Writer wewnętrznej bazy ...
+Running  WinDefend          Usługa Program antywirusowy Windows...
+Running  WinHttpAutoProx... Usługa autowykrywania serwera proxy...
+Running  Winmgmt            Instrumentacja zarządzania Windows
+Running  WinRM              Zdalne zarządzanie systemem Windows...
+Stopped  wisvc              Usługa niejawnego programu testów s...
+Stopped  wlidsvc            Asystent logowania za pomocą konta ...
+Stopped  wmiApSrv           Karta wydajności WMI
+Stopped  WMPNetworkSvc      Usługa udostępniania w sieci progra...
+Stopped  WPDBusEnum         Usługa modułu wyliczającego urządze...
+Running  WpnService         Usługa systemu powiadomień WNS
+Running  WpnUserService_... Usługa użytkownika powiadomień WNS_...
+Stopped  WSearch            Windows Search
+Running  wuauserv           Windows Update
+							</span>
+						</div>
+					</section>
 				</section>
-			</section>
 			</div>
 		</div>
 
@@ -147,6 +367,8 @@ Polecenie zostało wykonane pomyślnie.</span>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
+
+
 			const termynals = document.querySelectorAll('.termynal');
 			const termynalNodes = [...termynals];
 			let params = window.location.search;
@@ -175,6 +397,7 @@ Polecenie zostało wykonane pomyślnie.</span>
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				showNotes: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
