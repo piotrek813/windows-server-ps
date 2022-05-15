@@ -10,6 +10,9 @@
     --color-bg: #252a33;
     --color-text: #eee;
     --color-text-subtle: #a2a2a2;
+    --color-bg-ps: #012456;
+    --color-text-ps: #fff;
+    --color-text-subtle: #a2a2a2;
 }
 
 [data-termynal] {
@@ -18,6 +21,21 @@
     max-width: 100%;
     background: var(--color-bg);
     color: var(--color-text);
+    font-size: 18px;
+    font-family: 'Fira Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace;
+    border-radius: 4px;
+    padding: 75px 45px 35px;
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+[data-termynal].ps {
+    text-align: left;
+    width: 750px;
+    max-width: 100%;
+    background: var(--color-bg-ps);
+    color: var(--color-text-ps);
     font-size: 18px;
     font-family: 'Fira Mono', Consolas, Menlo, Monaco, 'Courier New', Courier, monospace;
     border-radius: 4px;
@@ -43,7 +61,17 @@
 }
 
 [data-termynal]:after {
-    content: 'bash';
+    content: 'cmd';
+    position: absolute;
+    color: var(--color-text-subtle);
+    top: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+[data-termynal].ps:after {
+    content: 'powershell';
     position: absolute;
     color: var(--color-text-subtle);
     top: 5px;
