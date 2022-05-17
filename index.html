@@ -455,7 +455,55 @@ pause
 						 	<code>Get-Help -Name Get-Help</code> <br>
 							Iiii… poszło! Jak możemy zauważyć widoczna jest nazwa komendy, następnie jej przeznaczenie, a potem jej różne wersje oraz aliasy, z którymi jest stosowana. Na koniec mamy jeszcze link do dokumentacji Microsoftu na temat danej komendy, oraz kilka kolejnych poleceń, po których wprowadzeniu otrzymamy o niej więcej informacji.
 						</aside>
-						<img src="img/help.webp" alt="">
+						<div class="termynal ps wide no-wrap"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator">Get-Help -Name Get-Help</span>
+							<span data-ty>
+	NAME
+	Get-Help
+
+SYNTAX
+	Get-Help [[-Name] <string>] [-Path <string>] [-Category {Alias | Cmdlet | Provider | General | FAQ | Glos
+	sary | HelpFile | ScriptCommand | Function | Filter | ExternalScript | All | DefaultHelp | Workflow | Dsc
+	Resource | Class | Configuration}] [-Component <string[]>] [-Functionality <string[]>] [-Role <string[]>]
+		[-Full]  [<CommonParameters>]
+
+	Get-Help [[-Name] <string>] -Detailed [-Path <string>] [-Category {Alias | Cmdlet | Provider | General |
+	FAQ | Glossary | HelpFile | ScriptCommand | Function | Filter | ExternalScript | All | DefaultHelp | Work
+	flow | DscResource | Class | Configuration}] [-Component <string[]>] [-Functionality <string[]>] [-Role <
+	string[]>]  [<CommonParameters>]
+
+	Get-Help [[-Name] <string>] -Examples [-Path <string>] [-Category {Alias | Cmdlet | Provider | General |
+	FAQ | Glossary | HelpFile | ScriptCommand | Function | Filter | ExternalScript | All | DefaultHelp | Work
+	flow | DscResource | Class | Configuration}] [-Component <string[]>] [-Functionality <string[]>] [-Role <
+	string[]>]  [<CommonParameters>]
+
+	Get-Help [[-Name] <string>] -Parameter <string> [-Path <string>] [-Category {Alias | Cmdlet | Provider |
+	General | FAQ | Glossary | HelpFile | ScriptCommand | Function | Filter | ExternalScript | All | DefaultH
+	elp | Workflow | DscResource | Class | Configuration}] [-Component <string[]>] [-Functionality <string[]>
+	] [-Role <string[]>]  [<CommonParameters>]
+
+	Get-Help [[-Name] <string>] -Online [-Path <string>] [-Category {Alias | Cmdlet | Provider | General | FA
+	Q | Glossary | HelpFile | ScriptCommand | Function | Filter | ExternalScript | All | DefaultHelp | Workfl
+	ow | DscResource | Class | Configuration}] [-Component <string[]>] [-Functionality <string[]>] [-Role <st
+	ring[]>]  [<CommonParameters>]
+
+	Get-Help [[-Name] <string>] -ShowWindow [-Path <string>] [-Category {Alias | Cmdlet | Provider | General
+	| FAQ | Glossary | HelpFile | ScriptCommand | Function | Filter | ExternalScript | All | DefaultHelp | Wo
+	rkflow | DscResource | Class | Configuration}] [-Component <string[]>] [-Functionality <string[]>] [-Role
+		<string[]>]  [<CommonParameters>]
+
+
+ALIASES
+	None
+
+
+REMARKS
+	Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+		-- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+		-- To view the Help topic for this cmdlet online, type: "Get-Help Get-Help -Online" or
+			go to https://go.microsoft.com/fwlink/?LinkID=113316.
+							</span>
+						</div>
 					</section>
 					<section>
 						<aside class="notes">No dobrze, a co jeśli nie znamy komend? Jedną z opcji jest poszukanie w dokumentacjach (i jest to pewnie najskuteczniejsze), jednak nie zawsze mamy dostęp do Internetu. W takim właśnie celu powstały w PowerShellu dwie rzeczy: komenda <code>Get-Command</code> oraz co ciekawe… tabulator. <br><br>
@@ -1496,6 +1544,45 @@ False   No             InvalidArgs    {}
 							<img src="img/keyboard1.png" alt="">
 							<img class="fragment fade-in" src="img/keyboard2.png" alt="">
 						</div>
+					</section>
+					<section>
+						<pre><code>
+Write - Host "Hello World"
+$text = read - host "Please enter your name"
+$dd = "Mornin " + $text
+Write - Host $dd "" > C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+$i = 1
+Do {
+	"Licznik to : " + $i >> C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt;
+	$i++
+}
+Until($i - gt 5)
+$s = read - host "Dej numerek"
+Switch($s) {
+	1 {
+		"jeden" >> C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		$dd >> C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		$s >> C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		$array = 1, 2, 3, 4, 5
+		$array | ForEach {
+			Write - Host $_
+		} >> C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		type C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		break;
+	}
+	2 {
+		"dwa" >> C: \Users\ gregk\ OneDrive\ Pulpit\ test.txt
+		$dd >> C: \Users\ gregk\ OneDrive\ Pulpit\ test.txt
+		$s >> C: \Users\ gregk\ OneDrive\ Pulpit\ test.txt
+		$array = 6, 7, 8, 9, 10
+		$array | ForEach {
+			Write - Host $_
+		} >> C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		type C: \Users\ kaladin\ OneDrive\ Pulpit\ test.txt
+		break;
+	}
+}
+						</code></pre>
 					</section>
 				</section>
 				<section>
