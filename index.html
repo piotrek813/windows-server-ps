@@ -432,9 +432,6 @@ SET /P answer = "prompt: "
 						</pre>
 					</section>
 					<section>
-						<aside class="notes">Zobaczmy na ten przykład<br> <br> <code>title</code>
-							<br> pozwala na ustawienie tytułu okna. <br> Patrząc
-						natomiast flaga <code>/P</code> pozwala na pobranie wartości od użytkownika</aside>
 						<pre>
 							<code data-line-numbers="2|4|6,12,13,14|7,16,17,18|9,10">@echo off
 title Test
@@ -459,6 +456,12 @@ goto commonexit
 pause
 							</code>
 						</pre>
+					</section>
+					<section>
+						<pre><code>@echo off
+for /l %%x in (1, 1, 100) do (
+	echo %%x
+)</code></pre>
 					</section>
 				</section>
 				<section>
