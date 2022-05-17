@@ -89,6 +89,10 @@
     line-height: 2;
 }
 
+[data-ty="error"] {
+    color: #f50202;
+}
+
 [data-ty]:before {
     /* Set up defaults and ensure empty lines are displayed. */
     content: '';
