@@ -393,6 +393,29 @@ Successfully processed 1 files; Failed processing 0 files</span>
 						</div>
 					</section>
 					<section>
+						<div class="termynal"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">net config server</span>
+							<span data-ty>
+Nazwa serwera                                       \\WIN-776879JKCLC
+Komentarz serwera
+
+Wersja oprogramowania                               Windows Server 2019 Standard
+Serwer jest aktywny na
+		NetbiosSmb (WIN-776879JKCLC)
+		NetBT_Tcpip_{5BA4CD8C-D63B-49B3-A908-C7337A9A39AE} (WIN-776879JKCLC)
+		NetBT_Tcpip_{C0D8F674-A8DB-4D0A-B5E2-FDAB51C63A42} (WIN-776879JKCLC)
+
+
+Serwer jest ukryty                                  Nie
+Maksymalna liczba zalogowanych użytkowników         16777216
+Maksymalna liczba otwartych plików na sesję         16384
+
+Czas bezczynności sesji (min)                       15
+Polecenie zostało wykonane pomyślnie.
+							</span>
+						</div>
+					</section>
+					<section>
 						<aside class="notes">Dobra teraz niestety przyszła pora na batch'a. <br> <br> Zmienne Tworzymy używając <code>SET</code>
 							<br> a flaga <code>/A</code> oznacza, że wartośc zmiennej jest liczbą a bez niej watrość jest traktowana jak string <br><br>
 						natomiast flaga <code>/P</code> pozwala na pobranie wartości od użytkownika</aside>
@@ -1546,7 +1569,7 @@ False   No             InvalidArgs    {}
 						</div>
 					</section>
 					<section>
-						<pre><code>
+						<pre><code style="width: 1000px">
 Write - Host "Hello World"
 $text = read - host "Please enter your name"
 $dd = "Mornin " + $text
