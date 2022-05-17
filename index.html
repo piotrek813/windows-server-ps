@@ -194,7 +194,9 @@ testShare *         C:\test                                        test
 						 	<code>Get-Help -Name Get-Help</code> <br>
 							Iiii… poszło! Jak możemy zauważyć widoczna jest nazwa komendy, następnie jej przeznaczenie, a potem jej różne wersje oraz aliasy, z którymi jest stosowana. Na koniec mamy jeszcze link do dokumentacji Microsoftu na temat danej komendy, oraz kilka kolejnych poleceń, po których wprowadzeniu otrzymamy o niej więcej informacji.
 						</aside>
-						<img src="img/help.webp" alt="">
+						<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
+							<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get</span>
+						</div>
 					</section>
 					<section>
 						<aside class="notes">No dobrze, a co jeśli nie znamy komend? Jedną z opcji jest poszukanie w dokumentacjach (i jest to pewnie najskuteczniejsze), jednak nie zawsze mamy dostęp do Internetu. W takim właśnie celu powstały w PowerShellu dwie rzeczy: komenda <code>Get-Command</code> oraz co ciekawe… tabulator. <br><br>
@@ -1260,7 +1262,7 @@ False   No             InvalidArgs    {}
 						</aside>
 						<div class="r-stack">
 							<div class="termynal ps"  data-termynal data-ty-typeDelay="40" data-ty-lineDelay="700">
-								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">Get-WindowsFeature --whatifInstall-WindowsFeature -Name Web-Server -IncludeAllSubFeature -IncludeManagementTools -ComputerName Server -Credential egzamin\administrator -whatif</span>
+								<span data-ty="input" data-ty-prompt="C:\Users\Administrator>">WindowsFeature -Name Web-Server -IncludeAllSubFeature -IncludeManagementTools -ComputerName Server -Credential egzamin\administrator -whatif</span>
 							</div>
 							<img class="fragment fade-in-then-out" src="img/installation cred.png" alt="">
 						</div>
@@ -1798,8 +1800,8 @@ SET /P answer = "prompt: "
 						</pre>
 					</section>
 					<section>
-						<aside class="notes">Dobra teraz niestety przyszła pora na batch'a. <br> <br> Zmienne Tworzymy używając <code>SET</code>
-							<br> a flaga <code>/A</code> oznacza, że wartośc zmiennej jest liczbą a bez niej watrość jest traktowana jak string <br><br>
+						<aside class="notes">Zobaczmy na ten przykład<br> <br> <code>title</code>
+							<br> pozwala na ustawienie tytułu okna. <br> Następnie pobieramy wartość od użytkownika i zapi
 						natomiast flaga <code>/P</code> pozwala na pobranie wartości od użytkownika</aside>
 						<pre>
 							<code data-line-numbers="2|4|6,12,13,14|7,16,17,18|9,10">@echo off
